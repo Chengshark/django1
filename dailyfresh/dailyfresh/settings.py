@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'df_user',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'dailyfresh.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'demo', #数据库名字，
+        'USER': 'root', #数据库登录用户名
+        'PASSWORD': '6221', #数据库登录密码
+        'HOST': 'localhost', #数据库所在主机
+        'PORT': '3306', #数据库端口
     }
 }
 
@@ -101,3 +106,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+MEDIA_ROOT=os.path.join(BASE_DIR,"static/media")
